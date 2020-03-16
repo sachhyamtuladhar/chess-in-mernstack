@@ -17,12 +17,8 @@ import empty from '../../../../assets/empty.png'
 
 
 const ChessPiece = (props) => {
-    let image, pId
-    if (typeof props.pieceId !== "string")
-        pId = toString(props.pieceId)
-    else
-        pId = props.pieceId
-    switch(pId.substring(0,2)){
+    let image
+    switch(props.pieceId.substring(0,2)){
         case 'br':
             image = blackRook
             break;
@@ -65,7 +61,13 @@ const ChessPiece = (props) => {
     
     
     return(
-        <img src = {image} className={styles.ChessPiece} key={props.pieceId} alt={`Chesspiece for ${props.id}`}/>
+        <img 
+            src={image} 
+            className={styles.ChessPiece} 
+            key={props.pieceId} 
+            alt={`Chesspiece for ${props.pieceId}`}
+            onClick={(e)=>props.selected(e, props.index)}
+        />
     )
 }
 

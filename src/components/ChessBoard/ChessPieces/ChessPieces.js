@@ -8,7 +8,12 @@ const ChessPieces = props => {
             {
                 row.map((piece,index2)=>{
                     return (
-                        <ChessPiece pieceId={piece} key={ piece===0 ? (index1.toString()+ index2.toString()) : piece}/>
+                        <ChessPiece 
+                            pieceId={piece} 
+                            key={ piece==='' ? (index1.toString()+ index2.toString()) : piece}
+                            selected = {props.selected}
+                            index={[index1, index2]}
+                        />
                     )
                 })
             }

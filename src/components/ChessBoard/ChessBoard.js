@@ -11,7 +11,10 @@ const ChessBoard = (props) => {
     return (
         <div >
             <img src = {boardImage} alt="The chessboard"  className={styles.ChessBoard}  />
-            <ChessPieces position={props.position} />
+            <ChessPieces 
+                position={props.position}  
+                selected = {props.selected}
+            />
         </div>
     )
 }
